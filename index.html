@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STEEL — Strava for the Gym</title>
+<title>STEEL — The Social Gym App</title>
 <meta name="description" content="The social gym app. Log workouts, compete on leaderboards, steal training from athletes you admire. Coming soon to iOS and Android.">
-<meta property="og:title" content="STEEL — Strava for the Gym">
+<meta property="og:title" content="STEEL — The Social Gym App">
 <meta property="og:description" content="Log workouts, compete on leaderboards, steal training from athletes you admire.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -207,14 +207,14 @@
 <section class="hero">
   <div class="logo">STEEL</div>
   <h1>The gym is about to get <span class="accent">competitive</span></h1>
-  <p class="subtitle">Log workouts, compete on your gym's leaderboard, and steal training programmes from athletes you admire. Strava for the gym.</p>
+  <p class="subtitle">Log workouts, compete on your gym's leaderboard, and steal training programmes from athletes you admire.</p>
   
   <div id="signup-area">
     <div class="signup-form" id="form">
       <input type="email" id="email" placeholder="Enter your email" required>
       <button onclick="handleSignup()" id="btn">Get Early Access</button>
     </div>
-    <p class="signup-meta"><span class="count" id="count">0</span> people on the waitlist · Launching soon on iOS & Android</p>
+    <p class="signup-meta">Launching soon on iOS & Android</p>
   </div>
 
   <a href="https://steel-app-eight.vercel.app" class="try-link" target="_blank">
@@ -267,7 +267,7 @@
     <div class="diff-num">1</div>
     <div>
       <h3>Gym communities</h3>
-      <p>No other app lets you join your actual gym, see your gym mates' workouts, and compete on gym-level leaderboards. This is our moat.</p>
+      <p>No other app lets you join your actual gym, see your gym mates' workouts, and compete on gym-level leaderboards.</p>
     </div>
   </div>
   <div class="diff-item">
@@ -394,15 +394,6 @@ async function supaFetch(path, options = {}) {
   return res.json();
 }
 
-// Load waitlist count
-async function loadCount() {
-  try {
-    const data = await supaFetch('waitlist?select=id', { headers: { 'Prefer': 'count=exact' } });
-    const count = Array.isArray(data) ? data.length : 0;
-    document.getElementById('count').textContent = count;
-  } catch(e) { console.log('Count load failed'); }
-}
-
 async function submitEmail(email, btnId) {
   const btn = document.getElementById(btnId);
   const original = btn.textContent;
@@ -418,8 +409,7 @@ async function submitEmail(email, btnId) {
     // Replace form area with success
     const area = document.getElementById('signup-area');
     if (area && btnId === 'btn') {
-      area.innerHTML = '<div class="success-msg">You\'re on the list! We\'ll email you when Steel launches.</div><p class="signup-meta" style="margin-top:12px"><span class="count" id="count">0</span> people on the waitlist</p>';
-      loadCount();
+      area.innerHTML = '<div class="success-msg">You\'re on the list! We\'ll email you when Steel launches.</div>';
     } else {
       btn.textContent = "You're in! ✓";
       btn.style.background = '#22C55E';
@@ -442,8 +432,6 @@ function handleSignup2() {
   if (!email || !email.includes('@')) { alert('Enter a valid email'); return; }
   submitEmail(email, 'btn2');
 }
-
-loadCount();
 </script>
 
 </body>
