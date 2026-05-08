@@ -57,6 +57,9 @@
     padding: 0 24px;
     position: relative;
   }
+  @media (max-width: 540px) {
+    .container { padding: 0 16px; }
+  }
 
   .ambient {
     position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -69,8 +72,13 @@
     position: relative; z-index: 10;
     padding: 22px 0;
   }
+  @media (max-width: 540px) { nav { padding: 16px 0; } }
   nav .container {
     display: flex; align-items: center; justify-content: space-between;
+    gap: 10px;
+  }
+  @media (max-width: 540px) {
+    nav .container { padding: 0 16px; }
   }
   .wordmark {
     font-family: 'Inter Tight', -apple-system, sans-serif;
@@ -81,22 +89,41 @@
     line-height: 1;
     text-decoration: none;
     text-transform: uppercase;
+    flex-shrink: 0;
   }
+  @media (max-width: 540px) { .wordmark { font-size: 18px; } }
+  .nav-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+  @media (max-width: 540px) { .nav-right { gap: 10px; } }
+  .nav-beta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-dim); text-decoration: none;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .nav-beta:hover { color: var(--text); }
+  @media (max-width: 380px) { .nav-beta { display: none; } }
   .nav-cta {
-    font-size: 13px; font-weight: 600;
+    font-size: 13px; font-weight: 700;
     padding: 10px 18px; border-radius: 999px;
-    background: var(--text); color: var(--inverse);
+    background: var(--accent); color: var(--ink);
     text-decoration: none; letter-spacing: -0.01em;
-    transition: opacity 0.2s, transform 0.15s;
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    white-space: nowrap;
   }
-  .nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+  @media (max-width: 540px) {
+    .nav-cta { font-size: 12px; padding: 9px 14px; }
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(191,230,0,0.35); }
 
   /* ─── HERO ─── */
   .hero {
     position: relative; z-index: 1;
     padding: 60px 0 80px;
   }
-  @media (max-width: 760px) { .hero { padding: 30px 0 60px; } }
+  @media (max-width: 760px) { .hero { padding: 24px 0 56px; } }
+  @media (max-width: 540px) { .hero { padding: 16px 0 48px; } }
   .hero .container {
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
@@ -104,7 +131,10 @@
     align-items: center;
   }
   @media (max-width: 860px) {
-    .hero .container { grid-template-columns: 1fr; gap: 50px; }
+    .hero .container { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 540px) {
+    .hero .container { padding: 0 16px; gap: 32px; }
   }
 
   .hero-eyebrow {
@@ -113,6 +143,9 @@
     letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--text-dim); margin-bottom: 24px;
     display: inline-flex; align-items: center; gap: 8px;
+  }
+  @media (max-width: 540px) {
+    .hero-eyebrow { font-size: 10px; margin-bottom: 18px; }
   }
   .hero-eyebrow::before {
     content: ''; width: 6px; height: 6px; border-radius: 50%;
@@ -125,11 +158,14 @@
   }
 
   h1.hero-title {
-    font-size: clamp(48px, 7.5vw, 84px);
-    line-height: 0.94;
+    font-size: clamp(40px, 7.5vw, 84px);
+    line-height: 0.96;
     letter-spacing: -0.04em;
     font-weight: 800;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 540px) {
+    h1.hero-title { line-height: 1; margin-bottom: 16px; }
   }
   h1.hero-title .italic {
     position: relative;
@@ -154,31 +190,63 @@
   }
   @media (max-width: 760px) { .hero-sub { font-size: 16px; } }
 
-  .hero-cta-row {
-    display: flex; gap: 12px; align-items: center;
-    flex-wrap: wrap;
+  .hero-signup {
+    display: flex; gap: 8px;
+    max-width: 460px;
+    margin-bottom: 14px;
   }
-  .btn-primary {
-    background: var(--accent); color: var(--ink);
-    padding: 14px 26px; border-radius: 999px;
-    font-size: 15px; font-weight: 700; letter-spacing: -0.01em;
-    text-decoration: none; border: none; cursor: pointer;
+  @media (max-width: 540px) {
+    .hero-signup { flex-direction: column; max-width: 100%; gap: 10px; }
+  }
+  .hero-signup input {
+    flex: 1; min-width: 0;
+    padding: 14px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--border-bright);
+    background: var(--card);
+    color: var(--text);
     font-family: inherit;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .hero-signup input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(191,230,0,0.15);
+  }
+  .hero-signup input::placeholder { color: var(--text-subtle); }
+  .hero-signup button {
+    background: var(--accent); color: var(--ink);
+    border: none; padding: 14px 24px; border-radius: 999px;
+    font-family: inherit; font-size: 15px; font-weight: 700;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    white-space: nowrap;
     transition: transform 0.15s, box-shadow 0.2s;
   }
-  .btn-primary:hover {
+  @media (max-width: 540px) {
+    .hero-signup button { padding: 16px 24px; font-size: 16px; }
+  }
+  .hero-signup button:hover {
     transform: translateY(-1px);
-    box-shadow: 0 8px 32px rgba(191,230,0,0.25);
+    box-shadow: 0 8px 32px rgba(191,230,0,0.3);
   }
-  .btn-secondary {
-    color: var(--text); padding: 14px 22px; border-radius: 999px;
-    font-size: 14px; font-weight: 500;
+  .hero-secondary {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .hero-secondary a {
+    color: var(--text-dim);
     text-decoration: none;
-    border: 1px solid var(--border-bright);
-    background: transparent;
-    transition: border-color 0.2s;
+    border-bottom: 1px solid var(--border-bright);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
   }
-  .btn-secondary:hover { border-color: var(--text-dim); }
+  .hero-secondary a:hover {
+    color: var(--text);
+    border-color: var(--text-dim);
+  }
 
   /* Light theme inside the phones, matching the landing */
   .phone, .pillar-phone {
@@ -203,6 +271,7 @@
   .phone {
     width: 320px;
     height: 660px;
+    max-width: 100%;
     background: #FAFAF7;
     border-radius: 44px;
     border: 8px solid #1A1A1A;
@@ -212,7 +281,8 @@
     overflow: hidden;
     position: relative;
   }
-  @media (max-width: 480px) { .phone { width: 280px; height: 580px; } }
+  @media (max-width: 540px) { .phone { width: 290px; height: 600px; } }
+  @media (max-width: 360px) { .phone { width: 260px; height: 540px; border-radius: 38px; } }
 
   .phone-screen {
     position: absolute; inset: 0;
@@ -406,7 +476,8 @@
     padding: 100px 0;
     position: relative; z-index: 1;
   }
-  @media (max-width: 760px) { .pillar { padding: 70px 0; } }
+  @media (max-width: 760px) { .pillar { padding: 60px 0; } }
+  @media (max-width: 540px) { .pillar { padding: 48px 0; } }
   .pillar .container {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
@@ -492,6 +563,7 @@
   .pillar-phone {
     width: 300px;
     height: 620px;
+    max-width: 100%;
     background: #FAFAF7;
     border-radius: 40px;
     border: 8px solid #1A1A1A;
@@ -501,8 +573,11 @@
     overflow: hidden;
     position: relative;
   }
-  @media (max-width: 480px) {
-    .pillar-phone { width: 270px; height: 560px; }
+  @media (max-width: 540px) {
+    .pillar-phone { width: 280px; height: 580px; }
+  }
+  @media (max-width: 360px) {
+    .pillar-phone { width: 250px; height: 520px; border-radius: 34px; }
   }
 
   /* ─── LOGGER MOCK ─── */
@@ -798,9 +873,11 @@
     padding: 80px 0;
     position: relative; z-index: 1;
   }
+  @media (max-width: 540px) { .how { padding: 48px 0; } }
   .how-header {
     text-align: center; max-width: 600px; margin: 0 auto 50px;
   }
+  @media (max-width: 540px) { .how-header { margin-bottom: 32px; } }
   .how-eyebrow {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px; color: var(--accent); font-weight: 600;
@@ -868,10 +945,12 @@
     padding: 80px 0;
     position: relative; z-index: 1;
   }
-  @media (max-width: 760px) { .install { padding: 60px 0; } }
+  @media (max-width: 760px) { .install { padding: 56px 0; } }
+  @media (max-width: 540px) { .install { padding: 44px 0; } }
   .install-header {
     text-align: center; max-width: 640px; margin: 0 auto 50px;
   }
+  @media (max-width: 540px) { .install-header { margin-bottom: 32px; } }
   .install-eyebrow {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px; color: var(--accent); font-weight: 600;
@@ -1008,6 +1087,8 @@
     text-align: center;
     position: relative; z-index: 1;
   }
+  @media (max-width: 760px) { .cta { padding: 64px 0; } }
+  @media (max-width: 540px) { .cta { padding: 48px 0; } }
   .cta-title {
     font-size: clamp(40px, 6vw, 64px);
     font-weight: 800;
@@ -1038,18 +1119,18 @@
     display: flex; gap: 8px;
     max-width: 460px; margin: 0 auto;
   }
-  @media (max-width: 480px) {
-    .signup-form { flex-direction: column; max-width: 320px; }
+  @media (max-width: 540px) {
+    .signup-form { flex-direction: column; max-width: 100%; gap: 10px; }
   }
   .signup-form input {
-    flex: 1;
+    flex: 1; min-width: 0;
     padding: 14px 18px;
     border-radius: 999px;
     border: 1px solid var(--border-bright);
     background: var(--card);
     color: var(--text);
     font-family: inherit;
-    font-size: 14px;
+    font-size: 16px;
     outline: none;
     transition: border-color 0.2s;
   }
@@ -1058,8 +1139,31 @@
   .signup-form button {
     background: var(--accent); color: var(--ink);
     border: none; padding: 14px 24px; border-radius: 999px;
-    font-family: inherit; font-size: 14px; font-weight: 700;
+    font-family: inherit; font-size: 15px; font-weight: 700;
+    letter-spacing: -0.01em;
     cursor: pointer;
+    white-space: nowrap;
+  }
+  @media (max-width: 540px) {
+    .signup-form button { padding: 16px 24px; font-size: 16px; }
+  }
+  .cta-beta-link {
+    text-align: center;
+    margin-top: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .cta-beta-link a {
+    color: var(--text-dim);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-bright);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .cta-beta-link a:hover {
+    color: var(--text);
+    border-color: var(--text-dim);
   }
 
   /* ─── Footer ─── */
@@ -1094,7 +1198,10 @@
 <nav>
   <div class="container">
     <a href="#" class="wordmark">STEEL</a>
-    <a href="https://steel-app-eight.vercel.app" target="_blank" class="nav-cta">Open beta</a>
+    <div class="nav-right">
+      <a href="https://steel-app-eight.vercel.app" target="_blank" class="nav-beta">Try beta</a>
+      <a href="#join" class="nav-cta">Get early access</a>
+    </div>
   </div>
 </nav>
 
@@ -1102,16 +1209,19 @@
 <section class="hero">
   <div class="container">
     <div data-reveal>
-      <div class="hero-eyebrow">In open beta</div>
+      <div class="hero-eyebrow">Launching soon · iOS &amp; Android</div>
       <h1 class="hero-title">
         The gym doesn't have to be a <span class="italic">solo sport.</span>
       </h1>
       <p class="hero-sub">
         Track your sessions. See what your friends are training. Get better in the company of people who actually push you.
       </p>
-      <div class="hero-cta-row">
-        <a href="https://steel-app-eight.vercel.app" target="_blank" class="btn-primary">Open the beta</a>
-        <a href="#install" class="btn-secondary">How to install →</a>
+      <form class="hero-signup" onsubmit="event.preventDefault();">
+        <input type="email" placeholder="your@email.com" required>
+        <button type="submit">Get early access</button>
+      </form>
+      <div class="hero-secondary">
+        <a href="https://steel-app-eight.vercel.app" target="_blank">Or try the web beta now →</a>
       </div>
     </div>
 
@@ -1533,16 +1643,16 @@
 <section class="install" id="install">
   <div class="container">
     <div class="install-header" data-reveal>
-      <div class="install-eyebrow">How to use the beta</div>
-      <h2 class="install-title">Open in your browser. <span class="italic">Add to home screen.</span></h2>
+      <div class="install-eyebrow">For early adopters</div>
+      <h2 class="install-title">Don't want to wait? <span class="italic">Try the beta.</span></h2>
       <p class="install-sub">
-        Steel runs as a web app. There's no App Store version yet — but you can install it on iPhone or Android in 10 seconds. Feels exactly like a native app once it's on your home screen.
+        While we get ready for the App Store launch, the early beta runs as a web app. Install it on iPhone or Android in 10 seconds — feels exactly like a native app once it's on your home screen.
       </p>
     </div>
 
     <div class="install-link-row" data-reveal>
       <a href="https://steel-app-eight.vercel.app" target="_blank" class="btn-open-app">
-        Open the beta
+        Try the beta
         <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
       </a>
     </div>
@@ -1600,14 +1710,17 @@
 <!-- ─── CTA / WAITLIST ─── -->
 <section class="cta" id="join">
   <div class="container">
-    <h2 class="cta-title" data-reveal>Stop training <span class="italic">alone.</span></h2>
-    <p class="cta-sub" data-reveal>The beta is free and open right now. Drop your email and we'll let you know when new features launch — and you'll be first in line if we open a TestFlight or Play Store version.</p>
+    <h2 class="cta-title" data-reveal>Be first when we <span class="italic">launch.</span></h2>
+    <p class="cta-sub" data-reveal>Free. Drop your email and you'll be first in line when the Steel app hits the App Store and Play Store.</p>
 
     <div data-reveal>
       <form class="signup-form" onsubmit="event.preventDefault();">
         <input type="email" placeholder="your@email.com" required>
-        <button type="submit">Join the waitlist</button>
+        <button type="submit">Get early access</button>
       </form>
+      <div class="cta-beta-link" data-reveal>
+        <a href="https://steel-app-eight.vercel.app" target="_blank">Or try the web beta now →</a>
+      </div>
     </div>
   </div>
 </section>
