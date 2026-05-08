@@ -1182,12 +1182,8 @@
     letter-spacing: 0.1em;
   }
 
-  /* Reveal animations */
-  [data-reveal] {
-    opacity: 0; transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+  /* Reveal animations removed — content renders immediately so visitors from
+     social links (TikTok, etc.) don't see a blank page during fade-in. */
 </style>
 </head>
 <body>
@@ -1304,27 +1300,6 @@
   </div>
 </section>
 
-<!-- ─── STATS STRIP ─── -->
-<div class="container">
-  <div class="stats-strip" data-reveal>
-    <div class="stat-block">
-      <div class="stat-num"><span id="s1">0</span></div>
-      <div class="stat-label">Beta athletes</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num"><span id="s2">0</span></div>
-      <div class="stat-label">Workouts logged</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num"><span id="s3">0</span><span class="unit">m</span></div>
-      <div class="stat-label">Volume kg</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num"><span id="s4">0</span></div>
-      <div class="stat-label">PRs hit</div>
-    </div>
-  </div>
-</div>
 
 <!-- ─── PILLAR 1: THE LOGGER ─── -->
 <section class="pillar">
@@ -1733,39 +1708,6 @@
   </div>
 </footer>
 
-<script>
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
-
-function animateCount(el, target, duration = 1200, decimals = 0) {
-  if (!el) return;
-  const start = performance.now();
-  function tick(now) {
-    const p = Math.min(1, (now - start) / duration);
-    const eased = 1 - Math.pow(1 - p, 3);
-    const val = target * eased;
-    el.textContent = decimals ? val.toFixed(decimals) : Math.round(val).toLocaleString();
-    if (p < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
-
-const statsIO = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      animateCount(document.getElementById('s1'), 247);
-      animateCount(document.getElementById('s2'), 8242);
-      animateCount(document.getElementById('s3'), 2.4, 1400, 1);
-      animateCount(document.getElementById('s4'), 183);
-      statsIO.disconnect();
-    }
-  });
-}, { threshold: 0.4 });
-const statsEl = document.querySelector('.stats-strip');
-if (statsEl) statsIO.observe(statsEl);
-</script>
 
 </body>
 </html>
