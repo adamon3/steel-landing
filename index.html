@@ -868,6 +868,198 @@
     z-index: 4;
   }
 
+  /* ─── GYM MAP MOCKUP ─── */
+  .gym-search {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 12px; color: var(--text-subtle);
+    margin-bottom: 10px;
+  }
+  .gym-search svg { width: 14px; height: 14px; flex-shrink: 0; stroke: var(--text-subtle); }
+  .gym-map-mock {
+    position: relative;
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    background:
+      linear-gradient(120deg, transparent 48%, rgba(0,0,0,0.06) 48%, rgba(0,0,0,0.06) 49.5%, transparent 49.5%),
+      linear-gradient(40deg, transparent 60%, rgba(0,0,0,0.04) 60%, rgba(0,0,0,0.04) 61.5%, transparent 61.5%),
+      linear-gradient(180deg, transparent 75%, rgba(0,0,0,0.05) 75%, rgba(0,0,0,0.05) 76.5%, transparent 76.5%),
+      linear-gradient(70deg, transparent 30%, rgba(0,0,0,0.04) 30%, rgba(0,0,0,0.04) 31%, transparent 31%),
+      linear-gradient(135deg, #F4F1E5, #E8EDDF);
+    border: 1px solid var(--border);
+  }
+  .gym-map-mock::after {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 80%, rgba(191,230,0,0.08), transparent 30%),
+      radial-gradient(circle at 75% 25%, rgba(0,100,255,0.04), transparent 25%);
+    pointer-events: none;
+  }
+  .gym-pin {
+    position: absolute;
+    width: 26px; height: 32px;
+    transform: translate(-50%, -100%);
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.25));
+  }
+  .gym-pin svg { width: 100%; height: 100%; display: block; }
+  .gym-pin-inner-text {
+    position: absolute; top: 5px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px; font-weight: 700;
+    color: var(--inverse);
+  }
+  .gym-pin.lime svg path { fill: var(--accent); stroke: var(--ink); stroke-width: 1.2; }
+  .gym-pin.lime .gym-pin-inner-text { color: var(--ink); }
+  .gym-pin.dark svg path { fill: var(--text); }
+  .gym-pin-callout {
+    position: absolute;
+    bottom: 38px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    white-space: nowrap;
+    box-shadow: 0 10px 24px -8px rgba(0,0,0,0.35);
+    z-index: 5;
+    text-align: center;
+  }
+  .gym-pin-callout::after {
+    content: ''; position: absolute;
+    bottom: -6px; left: 50%; transform: translateX(-50%) rotate(45deg);
+    width: 10px; height: 10px;
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .callout-title {
+    font-size: 13px; font-weight: 800; color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .callout-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px; color: var(--text-dim);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    margin-top: 2px; margin-bottom: 8px;
+  }
+  .callout-btn {
+    background: var(--accent); color: var(--ink);
+    padding: 5px 12px; border-radius: 999px;
+    font-size: 10px; font-weight: 700; letter-spacing: -0.01em;
+    display: inline-block;
+  }
+
+  /* ─── FEATURES GRID ─── */
+  .more {
+    padding: 80px 0;
+    position: relative; z-index: 1;
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  @media (max-width: 540px) { .more { padding: 56px 0; } }
+  .more-header {
+    text-align: center;
+    max-width: 600px; margin: 0 auto 40px;
+  }
+  .more-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--accent); font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .more-title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+  .more-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 860px) { .more-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .more-grid { grid-template-columns: 1fr; gap: 10px; } }
+  .more-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 20px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .more-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-bright);
+  }
+  .more-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: rgba(191,230,0,0.16);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 14px;
+  }
+  .more-icon svg { width: 18px; height: 18px; stroke: var(--accent-dark); }
+  .more-card-title {
+    font-size: 17px; font-weight: 800;
+    letter-spacing: -0.02em; margin-bottom: 6px;
+  }
+  .more-card-body {
+    font-size: 13px; color: var(--text-dim);
+    line-height: 1.55;
+  }
+
+  /* ─── PRIVACY MODE MOCKUP ─── */
+  .priv-segment {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;
+    padding: 4px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+  .priv-opt {
+    padding: 8px 4px; border-radius: 8px;
+    text-align: center;
+    font-size: 12px; font-weight: 700;
+    color: var(--text-dim);
+    letter-spacing: -0.01em;
+  }
+  .priv-opt.active { background: var(--text); color: var(--inverse); }
+  .priv-blurb {
+    font-size: 12px; color: var(--text-dim);
+    line-height: 1.5;
+    padding: 0 4px;
+    margin-bottom: 12px;
+  }
+  .priv-list {
+    list-style: none;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 4px 14px;
+  }
+  .priv-list-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0;
+    border-bottom: 0.5px solid var(--border);
+    font-size: 12px;
+  }
+  .priv-list-item:last-child { border-bottom: none; }
+  .priv-list-label { color: var(--text); font-weight: 600; }
+  .priv-list-status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--text-dim);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .priv-list-status.off {
+    color: var(--accent-dark);
+  }
+
   /* ─── HOW IT WORKS ─── */
   .how {
     padding: 80px 0;
@@ -1603,6 +1795,169 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PILLAR 4: GYM MAP ─── -->
+<section class="pillar reverse">
+  <div class="container">
+    <div class="pillar-visual">
+      <div class="pillar-phone">
+        <div class="phone-screen">
+          <div class="phone-header">
+            <div class="phone-logo">STEEL</div>
+            <div class="phone-avatar">A</div>
+          </div>
+          <div style="font-size:17px;font-weight:800;letter-spacing:-0.02em;margin-bottom:8px;">Find your gym</div>
+          <div class="gym-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Search e.g. Gymbox Bank…</span>
+          </div>
+          <div class="gym-map-mock">
+            <div class="gym-pin dark" style="top:25%;left:22%;">
+              <svg viewBox="0 0 26 32" preserveAspectRatio="none"><path d="M13 0 C20 0 26 6 26 13 C26 22 13 32 13 32 C13 32 0 22 0 13 C0 6 6 0 13 0 Z"/></svg>
+              <div class="gym-pin-inner-text">JG</div>
+            </div>
+            <div class="gym-pin dark" style="top:68%;left:78%;">
+              <svg viewBox="0 0 26 32" preserveAspectRatio="none"><path d="M13 0 C20 0 26 6 26 13 C26 22 13 32 13 32 C13 32 0 22 0 13 C0 6 6 0 13 0 Z"/></svg>
+              <div class="gym-pin-inner-text">PM</div>
+            </div>
+            <div class="gym-pin dark" style="top:78%;left:30%;">
+              <svg viewBox="0 0 26 32" preserveAspectRatio="none"><path d="M13 0 C20 0 26 6 26 13 C26 22 13 32 13 32 C13 32 0 22 0 13 C0 6 6 0 13 0 Z"/></svg>
+              <div class="gym-pin-inner-text">DC</div>
+            </div>
+            <div class="gym-pin lime" style="top:50%;left:50%;">
+              <div class="gym-pin-callout">
+                <div class="callout-title">Gymbox Bank</div>
+                <div class="callout-meta">3 MEMBERS</div>
+                <div class="callout-btn">Join</div>
+              </div>
+              <svg viewBox="0 0 26 32" preserveAspectRatio="none"><path d="M13 0 C20 0 26 6 26 13 C26 22 13 32 13 32 C13 32 0 22 0 13 C0 6 6 0 13 0 Z"/></svg>
+              <div class="gym-pin-inner-text">3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillar-text">
+      <div class="pillar-eyebrow">04 · The real-world layer</div>
+      <h2 class="pillar-title">Find your gym <span class="italic">on the map.</span></h2>
+      <p class="pillar-body">
+        Drop a pin at your actual gym — pulled from OpenStreetMap — and see who else trains there. No more "Gymbox Bank" vs "GYMBOX – Bank" ending up in three different communities.
+      </p>
+      <ul class="pillar-features">
+        <li>Canonical gym data from OpenStreetMap — zero duplicates</li>
+        <li>See how many Steel athletes train at each spot</li>
+        <li>Map auto-centres on your location (with permission)</li>
+        <li>Tap a pin, join in one tap</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PILLAR 5: PRIVACY MODES ─── -->
+<section class="pillar">
+  <div class="container">
+    <div class="pillar-text">
+      <div class="pillar-eyebrow">05 · Yours, on your terms</div>
+      <h2 class="pillar-title">Public, private, or <span class="italic">fully solo.</span></h2>
+      <p class="pillar-body">
+        Not everyone wants the social side. Flip one toggle and your workouts disappear from feeds and leaderboards while you keep browsing others. Or go full solo — the social tabs vanish entirely and Steel becomes a clean private logger.
+      </p>
+      <ul class="pillar-features">
+        <li>Normal — full social, default for most</li>
+        <li>Private — your lifts are hidden, you still see theirs</li>
+        <li>Solo — Home, Discover, Gym tabs hidden completely</li>
+        <li>Switch any time. No data lost.</li>
+      </ul>
+    </div>
+
+    <div class="pillar-visual">
+      <div class="pillar-phone">
+        <div class="phone-screen">
+          <div class="phone-header">
+            <div class="phone-logo">STEEL</div>
+            <div class="phone-avatar">A</div>
+          </div>
+          <div style="font-size:17px;font-weight:800;letter-spacing:-0.02em;margin-bottom:14px;">Edit profile</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-subtle);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;font-weight:500;">Privacy</div>
+          <div class="priv-segment">
+            <div class="priv-opt">Normal</div>
+            <div class="priv-opt active">Private</div>
+            <div class="priv-opt">Solo</div>
+          </div>
+          <div class="priv-blurb">Your workouts are hidden from everyone else. You can still browse and Steel theirs.</div>
+
+          <ul class="priv-list">
+            <li class="priv-list-item">
+              <span class="priv-list-label">Your workouts in feeds</span>
+              <span class="priv-list-status off">Hidden</span>
+            </li>
+            <li class="priv-list-item">
+              <span class="priv-list-label">Leaderboards</span>
+              <span class="priv-list-status off">Off</span>
+            </li>
+            <li class="priv-list-item">
+              <span class="priv-list-label">Browse others'</span>
+              <span class="priv-list-status">Allowed</span>
+            </li>
+            <li class="priv-list-item">
+              <span class="priv-list-label">Steel It</span>
+              <span class="priv-list-status">Allowed</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MORE FEATURES GRID ─── -->
+<section class="more">
+  <div class="container">
+    <div class="more-header">
+      <div class="more-eyebrow">More inside</div>
+      <h2 class="more-title">All the details you'd want.</h2>
+    </div>
+
+    <div class="more-grid">
+      <div class="more-card">
+        <div class="more-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div class="more-card-title">Calendar streaks</div>
+        <div class="more-card-body">Every session pinned to its date. Spot the weeks you put in the work and the ones you didn't.</div>
+      </div>
+
+      <div class="more-card">
+        <div class="more-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg></div>
+        <div class="more-card-title">Progress charts</div>
+        <div class="more-card-body">Auto-tracked 1RM, top set, and session volume per lift. See the line go up — or know when to deload.</div>
+      </div>
+
+      <div class="more-card">
+        <div class="more-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
+        <div class="more-card-title">Templates</div>
+        <div class="more-card-body">Save any workout as a template. Pull it up tomorrow with one tap, weights and reps already in.</div>
+      </div>
+
+      <div class="more-card">
+        <div class="more-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <div class="more-card-title">Likes &amp; comments</div>
+        <div class="more-card-body">Cheer your mates on a PR. Drop a "good lift". Light social touch, no algorithmic feed nonsense.</div>
+      </div>
+
+      <div class="more-card">
+        <div class="more-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="more-card-title">Rest timer</div>
+        <div class="more-card-body">Tap a set complete and a pill-shaped timer counts you back to ready. Haptic buzz when it's go time.</div>
+      </div>
+
+      <div class="more-card">
+        <div class="more-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><path d="M10.71 5.05A16 16 0 0122.56 9"/><path d="M1.42 9a15.91 15.91 0 014.7-2.88"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+        <div class="more-card-title">Works offline</div>
+        <div class="more-card-body">No signal at the gym in the basement? Log anyway — sets queue locally and sync when you're back online.</div>
       </div>
     </div>
   </div>
