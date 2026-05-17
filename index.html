@@ -231,6 +231,16 @@
     transform: translateY(-1px);
     box-shadow: 0 8px 32px rgba(191,230,0,0.3);
   }
+  /* Honeypot — visually hidden but in the DOM (display:none gets skipped by bots) */
+  .hp-field {
+    position: absolute !important;
+    left: -9999px; top: -9999px;
+    width: 1px; height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    border: 0; padding: 0;
+  }
+
   /* Inline form status (success / error / already-on-list) */
   .form-status {
     font-family: 'JetBrains Mono', monospace;
@@ -1423,6 +1433,7 @@
       </p>
       <form class="hero-signup waitlist-form" data-source="hero">
         <input type="email" name="email" placeholder="your@email.com" required>
+        <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit">Get early access</button>
       </form>
       <div class="form-status" data-for="hero" aria-live="polite"></div>
@@ -2086,6 +2097,7 @@
     <div data-reveal>
       <form class="signup-form waitlist-form" data-source="cta">
         <input type="email" name="email" placeholder="your@email.com" required>
+        <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit">Get early access</button>
       </form>
       <div class="form-status form-status-centered" data-for="cta" aria-live="polite"></div>
@@ -2125,6 +2137,15 @@
     }
 
     async function submit(form) {
+      // Honeypot — humans don't see/fill .hp-field, bots do.
+      // If it's filled, fake success silently so bots don't retry.
+      const hp = form.querySelector('.hp-field');
+      if (hp && hp.value) {
+        form.classList.add('done');
+        setStatus(form, "You're in. We'll email you when launch is near.", 'ok');
+        return;
+      }
+
       const input = form.querySelector('input[type=email]');
       const email = (input.value || '').trim().toLowerCase();
       if (!EMAIL_RE.test(email)) { setStatus(form, 'Enter a valid email.', 'err'); input.focus(); return; }
