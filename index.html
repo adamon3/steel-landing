@@ -103,7 +103,11 @@
     white-space: nowrap;
   }
   .nav-beta:hover { color: var(--text); }
-  @media (max-width: 380px) { .nav-beta { display: none; } }
+  @media (max-width: 380px) {
+    /* Keep visible but tighter — TikTok arrivals on tiny phones still see both paths */
+    .nav-beta { font-size: 9px; letter-spacing: 0.08em; }
+    .nav-right { gap: 8px; }
+  }
   .nav-cta {
     font-size: 13px; font-weight: 700;
     padding: 10px 18px; border-radius: 999px;
