@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#FAFAF7">
-<title>Steel · the workout tracker your gym sees</title>
+<title>Steel — make the gym social</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1404,6 +1404,15 @@
     font-size: 11px; color: var(--text-subtle);
     letter-spacing: 0.1em;
   }
+  .footer-builtby {
+    font-size: 12px; color: var(--text-dim);
+    line-height: 1.5;
+    flex: 1; min-width: 0;
+    text-align: center;
+  }
+  @media (max-width: 600px) {
+    .footer-builtby { text-align: left; flex: 1 1 100%; order: 3; margin-top: 4px; }
+  }
 
   /* Reveal animations removed — content renders immediately so visitors from
      social links (TikTok, etc.) don't see a blank page during fade-in. */
@@ -1428,12 +1437,12 @@
 <section class="hero">
   <div class="container">
     <div data-reveal>
-      <div class="hero-eyebrow">Launching soon · iOS &amp; Android</div>
+      <div class="hero-eyebrow">Beta live · iOS coming</div>
       <h1 class="hero-title">
         The gym doesn't have to be a <span class="italic">solo sport.</span>
       </h1>
       <p class="hero-sub">
-        A workout tracker with a feed. Log every set. See what your friends and your gym are lifting. Copy any workout in one tap. Free in beta.
+        A workout tracker with a feed. Log every set, see what your friends and your gym are lifting, copy any workout in one tap. Personal records auto-tagged. Free in beta.
       </p>
       <form class="hero-signup waitlist-form" data-source="hero">
         <input type="email" name="email" placeholder="your@email.com" required>
@@ -1529,20 +1538,20 @@
 <div class="container">
   <div class="stats-strip">
     <div class="stat-block">
-      <div class="stat-num">84</div>
-      <div class="stat-label">Beta athletes</div>
+      <div class="stat-num">1.4<span class="unit">m</span></div>
+      <div class="stat-label">Volume kg lifted</div>
     </div>
     <div class="stat-block">
       <div class="stat-num">920</div>
       <div class="stat-label">Workouts logged</div>
     </div>
     <div class="stat-block">
-      <div class="stat-num">1.4<span class="unit">m</span></div>
-      <div class="stat-label">Volume kg</div>
+      <div class="stat-num">96</div>
+      <div class="stat-label">PRs auto-tagged</div>
     </div>
     <div class="stat-block">
-      <div class="stat-num">96</div>
-      <div class="stat-label">PRs hit</div>
+      <div class="stat-num">84</div>
+      <div class="stat-label">Beta athletes</div>
     </div>
   </div>
 </div>
@@ -1796,7 +1805,7 @@
             <div class="lb-row me">
               <div class="lb-rank">4</div>
               <div class="lb-row-mid">
-                <div class="mini-avatar" style="width: 26px; height: 26px;">AS</div>
+                <div class="mini-avatar" style="width: 26px; height: 26px;">A</div>
                 <div style="min-width: 0;">
                   <div class="lb-row-name">You</div>
                   <div class="lb-row-detail">102.5 × 7</div>
@@ -1876,7 +1885,7 @@
     </div>
 
     <div class="pillar-text">
-      <div class="pillar-eyebrow">04 · The real-world layer</div>
+      <div class="pillar-eyebrow">04 · Your gym, mapped</div>
       <h2 class="pillar-title">Find your gym <span class="italic">on the map.</span></h2>
       <p class="pillar-body">
         Tap the pin at your gym. See who else lifts there, what they're training, and when they last hit the floor.
@@ -1996,34 +2005,6 @@
   </div>
 </section>
 
-<!-- ─── HOW IT WORKS ─── -->
-<section class="how">
-  <div class="container">
-    <div class="how-header" data-reveal>
-      <div class="how-eyebrow">Get started</div>
-      <h2 class="how-title">Three steps to <span class="italic">training together.</span></h2>
-    </div>
-
-    <div class="how-grid">
-      <div class="how-card" data-reveal>
-        <div class="how-num">01</div>
-        <div class="how-card-title">Sign up</div>
-        <div class="how-card-body">Free, takes 30 seconds. Add your gym so we can find your community.</div>
-      </div>
-      <div class="how-card" data-reveal>
-        <div class="how-num">02</div>
-        <div class="how-card-title">Log a workout</div>
-        <div class="how-card-body">Pre-loaded exercise library. Rest timers. PR detection. Templates you save and reuse.</div>
-      </div>
-      <div class="how-card" data-reveal>
-        <div class="how-num">03</div>
-        <div class="how-card-title">Follow your gym</div>
-        <div class="how-card-body">See sessions from people you train with. Cheer them on. Steel their workouts.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ─── INSTALL ─── -->
 <section class="install" id="install">
   <div class="container">
@@ -2092,11 +2073,39 @@
   </div>
 </section>
 
+<!-- ─── HOW IT WORKS ─── -->
+<section class="how">
+  <div class="container">
+    <div class="how-header" data-reveal>
+      <div class="how-eyebrow">Get started</div>
+      <h2 class="how-title">Three steps to <span class="italic">training together.</span></h2>
+    </div>
+
+    <div class="how-grid">
+      <div class="how-card" data-reveal>
+        <div class="how-num">01</div>
+        <div class="how-card-title">Sign up</div>
+        <div class="how-card-body">Free, takes 30 seconds. Add your gym so we can find your community.</div>
+      </div>
+      <div class="how-card" data-reveal>
+        <div class="how-num">02</div>
+        <div class="how-card-title">Log a workout</div>
+        <div class="how-card-body">Tap the lift, tap the set, done. Your 1RM and PRs update on the fly.</div>
+      </div>
+      <div class="how-card" data-reveal>
+        <div class="how-num">03</div>
+        <div class="how-card-title">Follow your gym</div>
+        <div class="how-card-body">See sessions from people you train with. Cheer them on. Steel their workouts.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ─── CTA / WAITLIST ─── -->
 <section class="cta" id="join">
   <div class="container">
-    <h2 class="cta-title" data-reveal>Be first when we <span class="italic">launch.</span></h2>
-    <p class="cta-sub" data-reveal>Free. Drop your email and you'll be first in line when the Steel app hits the App Store and Play Store.</p>
+    <h2 class="cta-title" data-reveal>Don't train <span class="italic">alone.</span></h2>
+    <p class="cta-sub" data-reveal>Free in beta. Drop your email and we'll let you know when iOS lands.</p>
 
     <div data-reveal>
       <form class="signup-form waitlist-form" data-source="cta">
@@ -2116,6 +2125,7 @@
 <footer>
   <div class="container">
     <a href="#" class="wordmark" style="font-size: 16px;">STEEL</a>
+    <div class="footer-builtby">Built in London by Adam. Lifter by night, training for skeleton 2030 by morning.</div>
     <div class="footer-meta">© MMXXVI · TRAIN TOGETHER</div>
   </div>
 </footer>
