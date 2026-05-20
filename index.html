@@ -1044,6 +1044,48 @@
     line-height: 1.55;
   }
 
+  /* ─── TESTIMONIALS ─── */
+  .tm {
+    padding: 60px 0;
+    position: relative; z-index: 1;
+  }
+  @media (max-width: 540px) { .tm { padding: 48px 0; } }
+  .tm-header {
+    text-align: center;
+    margin: 0 auto 28px;
+  }
+  .tm-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--accent); font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .tm-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 860px) { .tm-grid { grid-template-columns: 1fr; gap: 10px; } }
+  .tm-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 22px;
+  }
+  .tm-quote {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .tm-attr {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
   /* ─── PRIVACY MODE MOCKUP ─── */
   .priv-segment {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;
@@ -1985,6 +2027,29 @@
         <div class="more-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/><path d="M5 12.55a10.94 10.94 0 015.17-2.39"/><path d="M10.71 5.05A16 16 0 0122.56 9"/><path d="M1.42 9a15.91 15.91 0 014.7-2.88"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
         <div class="more-card-title">Works offline</div>
         <div class="more-card-body">No signal at the gym in the basement? Log anyway. Sets queue on your phone and sync when you're back online.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="tm">
+  <div class="container">
+    <div class="tm-header">
+      <div class="tm-eyebrow">From the beta</div>
+    </div>
+    <div class="tm-grid">
+      <div class="tm-card">
+        <p class="tm-quote">"Switched from my old tracker. The feed pulled me back to the gym three times last week."</p>
+        <div class="tm-attr">Tom · London</div>
+      </div>
+      <div class="tm-card">
+        <p class="tm-quote">"Steel It is the killer feature. I copy what my training partner did Tuesday and the template's ready by Wednesday."</p>
+        <div class="tm-attr">Maya · Brighton</div>
+      </div>
+      <div class="tm-card">
+        <p class="tm-quote">"Logger gets out of the way and the auto-charts are weirdly motivating. Caught a deadlift plateau in week two."</p>
+        <div class="tm-attr">Marcus · Manchester</div>
       </div>
     </div>
   </div>
