@@ -915,20 +915,15 @@
     flex: 1;
     border-radius: 12px;
     overflow: hidden;
-    background:
-      linear-gradient(120deg, transparent 48%, rgba(0,0,0,0.06) 48%, rgba(0,0,0,0.06) 49.5%, transparent 49.5%),
-      linear-gradient(40deg, transparent 60%, rgba(0,0,0,0.04) 60%, rgba(0,0,0,0.04) 61.5%, transparent 61.5%),
-      linear-gradient(180deg, transparent 75%, rgba(0,0,0,0.05) 75%, rgba(0,0,0,0.05) 76.5%, transparent 76.5%),
-      linear-gradient(70deg, transparent 30%, rgba(0,0,0,0.04) 30%, rgba(0,0,0,0.04) 31%, transparent 31%),
-      linear-gradient(135deg, #F4F1E5, #E8EDDF);
     border: 1px solid var(--border);
+    min-height: 280px;
   }
-  .gym-map-mock::after {
-    content: ''; position: absolute; inset: 0;
-    background:
-      radial-gradient(circle at 30% 80%, rgba(191,230,0,0.08), transparent 30%),
-      radial-gradient(circle at 75% 25%, rgba(0,100,255,0.04), transparent 25%);
+  .gym-map-mock iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    border: none;
     pointer-events: none;
+    filter: saturate(0.3) brightness(1.05);
   }
   .gym-pin {
     position: absolute;
@@ -1459,7 +1454,10 @@
 <nav>
   <div class="container">
     <a href="#" class="wordmark">STEEL</a>
-    <a href="#join" class="nav-cta">Join the waitlist</a>
+    <div class="nav-right">
+      <a href="https://steel-app-eight.vercel.app" target="_blank" class="nav-beta">Try the demo →</a>
+      <a href="#join" class="nav-cta">Join the waitlist</a>
+    </div>
   </div>
 </nav>
 
@@ -1467,12 +1465,12 @@
 <section class="hero">
   <div class="container">
     <div data-reveal>
-      <div class="hero-eyebrow">Beta live · iOS coming</div>
+      <div class="hero-eyebrow">iOS & Android coming</div>
       <h1 class="hero-title">
         The gym doesn't have to be a <span class="italic">solo sport.</span>
       </h1>
       <p class="hero-sub">
-        A workout tracker with a feed. Log every set, see what your friends and your gym are lifting, copy any workout in one tap. Free in beta.
+        A workout tracker with a feed. Log every set, see what your friends and your gym are lifting, copy any workout in one tap. Free.
       </p>
       <form class="hero-signup waitlist-form" data-source="hero">
         <input type="email" name="email" placeholder="your@email.com" required>
@@ -1504,7 +1502,7 @@
 
           <div class="feed-card">
             <div class="feed-card-head">
-              <div class="mini-avatar">JK</div>
+              <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Jamie&backgroundColor=d4e2d4" alt="JK" class="mini-avatar" style="object-fit:cover;">
               <div>
                 <div class="feed-name">Jamie Kelly</div>
                 <div class="feed-meta">2H · NUFFIELD BARBICAN</div>
@@ -1545,9 +1543,9 @@
             </div>
           </div>
 
-          <div class="feed-card" style="opacity: 0.6;">
+          <div class="feed-card">
             <div class="feed-card-head">
-              <div class="mini-avatar">SO</div>
+              <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Sara&backgroundColor=f0e9e0" alt="SO" class="mini-avatar" style="object-fit:cover;">
               <div>
                 <div class="feed-name">Sara O'Brien</div>
                 <div class="feed-meta">YESTERDAY · 5K RUN</div>
@@ -1703,7 +1701,7 @@
 
           <div class="si-card">
             <div class="si-card-head">
-              <div class="mini-avatar">PM</div>
+              <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Priya&backgroundColor=e0d4e2" alt="PM" class="mini-avatar" style="object-fit:cover;">
               <div>
                 <div class="feed-name">Priya M.</div>
                 <div class="feed-meta">3H · BARRYS LONDON</div>
@@ -1799,7 +1797,7 @@
             <div class="lb-row">
               <div class="lb-rank podium">1</div>
               <div class="lb-row-mid">
-                <div class="mini-avatar" style="width: 26px; height: 26px;">JK</div>
+                <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Jamie&backgroundColor=d4e2d4" alt="JK" class="mini-avatar" style="width:26px;height:26px;object-fit:cover;">
                 <div style="min-width: 0;">
                   <div class="lb-row-name">Jamie Kelly</div>
                   <div class="lb-row-detail">120 × 5</div>
@@ -1810,7 +1808,7 @@
             <div class="lb-row">
               <div class="lb-rank podium">2</div>
               <div class="lb-row-mid">
-                <div class="mini-avatar" style="width: 26px; height: 26px;">TC</div>
+                <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Tom&backgroundColor=d4d8e2" alt="TC" class="mini-avatar" style="width:26px;height:26px;object-fit:cover;">
                 <div style="min-width: 0;">
                   <div class="lb-row-name">Tom Chen</div>
                   <div class="lb-row-detail">115 × 6</div>
@@ -1821,7 +1819,7 @@
             <div class="lb-row">
               <div class="lb-rank podium">3</div>
               <div class="lb-row-mid">
-                <div class="mini-avatar" style="width: 26px; height: 26px;">MR</div>
+                <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Maeve&backgroundColor=e2d4d4" alt="MR" class="mini-avatar" style="width:26px;height:26px;object-fit:cover;">
                 <div style="min-width: 0;">
                   <div class="lb-row-name">Maeve R.</div>
                   <div class="lb-row-detail">110 × 6</div>
@@ -1843,7 +1841,7 @@
             <div class="lb-row">
               <div class="lb-rank">5</div>
               <div class="lb-row-mid">
-                <div class="mini-avatar" style="width: 26px; height: 26px;">SO</div>
+                <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Sara&backgroundColor=f0e9e0" alt="SO" class="mini-avatar" style="width:26px;height:26px;object-fit:cover;">
                 <div style="min-width: 0;">
                   <div class="lb-row-name">Sara O'Brien</div>
                   <div class="lb-row-detail">100 × 6</div>
@@ -1854,7 +1852,7 @@
             <div class="lb-row">
               <div class="lb-rank">6</div>
               <div class="lb-row-mid">
-                <div class="mini-avatar" style="width: 26px; height: 26px;">DH</div>
+                <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Dave&backgroundColor=dde2d4" alt="DH" class="mini-avatar" style="width:26px;height:26px;object-fit:cover;">
                 <div style="min-width: 0;">
                   <div class="lb-row-name">Dave H.</div>
                   <div class="lb-row-detail">95 × 8</div>
@@ -1885,6 +1883,7 @@
             <span>Search e.g. Gymbox Bank…</span>
           </div>
           <div class="gym-map-mock">
+            <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-0.095%2C51.512%2C-0.075%2C51.522&layer=mapnik" loading="lazy"></iframe>
             <div class="gym-pin dark" style="top:25%;left:22%;">
               <svg viewBox="0 0 26 32" preserveAspectRatio="none"><path d="M13 0 C20 0 26 6 26 13 C26 22 13 32 13 32 C13 32 0 22 0 13 C0 6 6 0 13 0 Z"/></svg>
               <div class="gym-pin-inner-text">JG</div>
@@ -2087,7 +2086,7 @@
 <section class="cta" id="join">
   <div class="container">
     <h2 class="cta-title" data-reveal>Don't train <span class="italic">alone.</span></h2>
-    <p class="cta-sub" data-reveal>Free in beta. Drop your email and we'll let you know when iOS lands.</p>
+    <p class="cta-sub" data-reveal>Free. Drop your email and we'll let you know when iOS lands.</p>
 
     <div data-reveal>
       <form class="signup-form waitlist-form" data-source="cta">
@@ -2097,7 +2096,7 @@
       </form>
       <div class="form-status form-status-centered" data-for="cta" aria-live="polite"></div>
       <div class="cta-beta-link" data-reveal>
-        <a href="https://steel-app-eight.vercel.app" target="_blank">Or try the web beta now →</a>
+        <a href="https://steel-app-eight.vercel.app" target="_blank">Or try the web demo now →</a>
       </div>
     </div>
   </div>
@@ -2107,7 +2106,7 @@
 <footer>
   <div class="container">
     <a href="#" class="wordmark" style="font-size: 16px;">STEEL</a>
-    <div class="footer-meta">© 2026 · TRAIN TOGETHER</div>
+    <div class="footer-meta">© 2026 · BUILT IN LONDON</div>
   </div>
 </footer>
 
