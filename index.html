@@ -859,9 +859,11 @@
   }
   .si-popup {
     position: absolute;
-    bottom: 12%; left: 14px; right: 14px;
+    bottom: 0; left: 0; right: 0;
     background: var(--card);
     border: 1px solid var(--border);
+    border-bottom: none;
+    border-radius: 20px 20px 0 0 !important;
     border-radius: 16px;
     padding: 16px;
     z-index: 5;
@@ -1482,7 +1484,7 @@
 
     <div class="phone-wrap" data-reveal>
       <div class="float-pill pr">⚡ NEW PR</div>
-      <div class="float-pill steel-it">⊕ STEEL IT</div>
+      <div class="float-pill steel-it"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>STEEL IT</div>
 
       <div class="phone">
         <div class="phone-notch"></div>
@@ -1539,7 +1541,7 @@
             <div class="feed-actions">
               <span class="feed-action">♥ 12</span>
               <span class="feed-action">💬 3</span>
-              <span class="steel-it-btn">⊕ Steel it</span>
+              <span class="steel-it-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>Steel it</span>
             </div>
           </div>
 
@@ -1552,6 +1554,26 @@
               </div>
             </div>
             <div class="feed-title" style="font-size: 13px; margin-bottom: 0;">Tempo run · 22:14</div>
+          </div>
+
+          <div class="feed-card">
+            <div class="feed-card-head">
+              <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Thomas&backgroundColor=d4d8e2" alt="TC" class="mini-avatar" style="object-fit:cover;">
+              <div>
+                <div class="feed-name">Tom Chen</div>
+                <div class="feed-meta">YESTERDAY · LEGS</div>
+              </div>
+              <div class="pr-badge">PR</div>
+            </div>
+            <div class="feed-title" style="font-size: 13px; margin-bottom: 8px;">Squat day</div>
+            <div class="feed-row">
+              <span class="feed-row-name">Back Squat</span>
+              <span class="feed-row-data">140<span class="unit">kg</span> × 5</span>
+            </div>
+            <div class="feed-row">
+              <span class="feed-row-name">Bulgarian Split Squat</span>
+              <span class="feed-row-data">30<span class="unit">kg</span> × 10</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1673,6 +1695,40 @@
             <div class="logger-set">
               <div class="logger-set-num" style="color: var(--text-dim);">4</div>
               <div class="logger-set-prev">100×5</div>
+              <div class="logger-set-input" style="opacity: 0.5;">—</div>
+              <div class="logger-set-input" style="opacity: 0.5;">—</div>
+              <div class="logger-set-check pending">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="logger-exercise">
+            <div class="logger-ex-name">
+              Overhead Press
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/>
+              </svg>
+            </div>
+            <div class="logger-ex-last">LAST · 60×6 · 19 APR</div>
+
+            <div class="logger-set completed">
+              <div class="logger-set-num">1</div>
+              <div class="logger-set-prev">60×6</div>
+              <div class="logger-set-val">62.5</div>
+              <div class="logger-set-val">6</div>
+              <div class="logger-set-check done">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#FAFAF7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="logger-set">
+              <div class="logger-set-num" style="color: var(--text-dim);">2</div>
+              <div class="logger-set-prev">60×6</div>
               <div class="logger-set-input" style="opacity: 0.5;">—</div>
               <div class="logger-set-input" style="opacity: 0.5;">—</div>
               <div class="logger-set-check pending">
@@ -1975,6 +2031,18 @@
             <li class="priv-list-item">
               <span class="priv-list-label">Steel It</span>
               <span class="priv-list-status">Allowed</span>
+            </li>
+            <li class="priv-list-item">
+              <span class="priv-list-label">Profile photo</span>
+              <span class="priv-list-status">Visible</span>
+            </li>
+            <li class="priv-list-item">
+              <span class="priv-list-label">Gym shown on profile</span>
+              <span class="priv-list-status off">Hidden</span>
+            </li>
+            <li class="priv-list-item">
+              <span class="priv-list-label">Notifications</span>
+              <span class="priv-list-status">On</span>
             </li>
           </ul>
         </div>
