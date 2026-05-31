@@ -3,34 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#FAFAF7">
 <title>Privacy Policy — Steel</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: #FAFAF7; color: #111; line-height: 1.7;
-    max-width: 720px; margin: 0 auto; padding: 48px 24px 80px;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    color-scheme: light only;
+    background: #FAFAF7;
+    scroll-behavior: smooth;
   }
-  .logo { font-size: 18px; font-weight: 800; letter-spacing: 1px; margin-bottom: 8px; }
-  .logo-bar { display: inline-block; width: 60px; height: 6px; background: #C1E632; margin-bottom: 32px; }
-  h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
-  .updated { color: #71717A; font-size: 14px; margin-bottom: 32px; }
-  h2 { font-size: 20px; font-weight: 700; margin: 32px 0 12px; }
-  p { margin-bottom: 14px; }
-  ul { margin: 0 0 14px 20px; }
+
+  :root {
+    --bg: #FAFAF7;
+    --card: #FFFFFF;
+    --border: #E5E5E0;
+    --text: #0A0A0A;
+    --text-dim: #4A4A48;
+    --text-subtle: #8A8A85;
+    --accent: #BFE600;
+    --accent-dark: #6B8A00;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.65;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 88px;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  .wordmark {
+    display: inline-block;
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+    line-height: 1;
+    margin-bottom: 36px;
+  }
+
+  h1 {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 10px;
+  }
+  h1 .hl {
+    position: relative;
+    display: inline-block;
+    color: var(--text);
+  }
+  h1 .hl::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0.05em;
+    height: 0.22em;
+    background: var(--accent);
+    z-index: -1;
+    border-radius: 2px;
+  }
+
+  .updated {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 38px 0 12px;
+  }
+
+  p { margin-bottom: 14px; color: var(--text-dim); }
+  ul { margin: 0 0 14px 22px; color: var(--text-dim); }
   li { margin-bottom: 8px; }
-  a { color: #4F46E5; }
-  .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #E4E4E7; color: #71717A; font-size: 13px; }
-  strong { font-weight: 700; }
+  strong { font-weight: 700; color: var(--text); }
+
+  a {
+    color: var(--accent-dark);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(107, 138, 0, 0.35);
+    transition: border-color 0.15s;
+  }
+  a:hover { border-bottom-color: var(--accent-dark); }
+
+  .footer {
+    margin-top: 52px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+  }
+  .footer a {
+    color: var(--text-subtle);
+    border-bottom-color: var(--border);
+  }
+  .footer a:hover { color: var(--text-dim); }
+
+  @media (max-width: 540px) {
+    body { padding: 28px 18px 72px; }
+    h1 { font-size: 30px; }
+    .wordmark { font-size: 18px; }
+  }
 </style>
 </head>
 <body>
 
-<div class="logo">STEEL</div>
-<div class="logo-bar"></div>
+<a href="/" class="wordmark">STEEL</a>
 
-<h1>Privacy Policy</h1>
-<p class="updated">Last updated: 29 May 2026</p>
+<h1><span class="hl">Privacy</span> Policy</h1>
+<p class="updated">Last updated · 29 May 2026</p>
 
 <p>This Privacy Policy explains how Steel ("we", "us", "our") collects, uses, and protects your information when you join our waitlist, visit getsteel.app, or use the Steel app (together, the "Service"). Steel is operated from London, United Kingdom.</p>
 
@@ -114,7 +227,7 @@
 <p><strong>Email:</strong> <a href="mailto:privacy@getsteel.app">privacy@getsteel.app</a></p>
 
 <div class="footer">
-  © 2026 Steel · Built in London
+  © 2026 · Built in London · <a href="/">getsteel.app</a>
 </div>
 
 </body>
