@@ -1487,12 +1487,12 @@
 <section class="hero">
   <div class="container">
     <div data-reveal>
-      <div class="hero-eyebrow">iOS & Android coming</div>
+      <div class="hero-eyebrow">Beta live now · iOS & Android coming</div>
       <h1 class="hero-title">
         The gym doesn't have to be a <span class="italic">solo sport.</span>
       </h1>
       <p class="hero-sub">
-        A workout tracker with a feed. Log every set, see what your friends and your gym are lifting, copy any workout in one tap. Free.
+        Track every session, see what your gym is lifting, and Steel anyone's workout in one tap. Free.
       </p>
       <form class="hero-signup waitlist-form" data-source="hero">
         <input type="email" name="email" placeholder="your@email.com" required>
@@ -1559,8 +1559,8 @@
               <span class="feed-row-data">22<span class="unit">kg</span> × 12</span>
             </div>
             <div class="feed-actions">
-              <span class="feed-action">♥ 12</span>
-              <span class="feed-action">💬 3</span>
+              <span class="feed-action"><svg width="12" height="12" viewBox="0 0 24 24" fill="#E53E3E" stroke="#E53E3E" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> 12</span>
+              <span class="feed-action"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 3</span>
               <span class="steel-it-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>Steel it</span>
             </div>
           </div>
@@ -1610,7 +1610,7 @@
   <div class="stats-strip">
     <div class="stat-block">
       <div class="stat-num">1.4<span class="unit">m</span></div>
-      <div class="stat-label">Volume kg lifted</div>
+      <div class="stat-label">kg lifted in beta</div>
     </div>
     <div class="stat-block">
       <div class="stat-num">920</div>
@@ -1622,7 +1622,7 @@
     </div>
     <div class="stat-block">
       <div class="stat-num">84</div>
-      <div class="stat-label">Beta athletes</div>
+      <div class="stat-label">Athletes in beta</div>
     </div>
   </div>
 </div>
@@ -1862,7 +1862,7 @@
     </div>
 
     <div class="pillar-text" data-reveal>
-      <div class="pillar-eyebrow">02 · Steal the work</div>
+      <div class="pillar-eyebrow">02 · Steel the work</div>
       <h2 class="pillar-title">Like a workout? <span class="italic">Steel it.</span></h2>
       <p class="pillar-body">
         Tap Steel It on any session. The lifts, weights, and reps are already filled. Run it tomorrow morning, or save it for next week.
@@ -2084,7 +2084,7 @@
       <div class="pillar-eyebrow">05 · Yours, on your terms</div>
       <h2 class="pillar-title">Public, private, or <span class="italic">fully solo.</span></h2>
       <p class="pillar-body">
-        Three modes, one switch. Public, Private, or Solo. Flip whenever.
+        Your data, your rules. Pick how visible you want to be, and switch any time. Nothing is lost when you go private.
       </p>
       <ul class="pillar-features">
         <li>Public: your lifts in the feed, on leaderboards</li>
@@ -2155,7 +2155,7 @@
   <div class="container">
     <div class="more-header">
       <div class="more-eyebrow">More inside</div>
-      <h2 class="more-title">All the details you'd want.</h2>
+      <h2 class="more-title">All the bits that matter.</h2>
     </div>
 
     <div class="more-grid">
@@ -2253,7 +2253,7 @@
 <section class="cta" id="join">
   <div class="container">
     <h2 class="cta-title" data-reveal>Don't train <span class="italic">alone.</span></h2>
-    <p class="cta-sub" data-reveal>Free. Drop your email and we'll let you know when the apps land.</p>
+    <p class="cta-sub" data-reveal>Free to join. Drop your email — we'll tell you the moment the native apps are ready.</p>
 
     <div data-reveal>
       <form class="signup-form waitlist-form" data-source="cta">
@@ -2345,21 +2345,4 @@
           return;
         }
 
-        const body = await res.text();
-        console.error('waitlist insert failed', res.status, body);
-        setStatus(form, "Couldn't sign you up. Try again in a moment.", 'err');
-      } catch (e) {
-        form.classList.remove('busy');
-        console.error('waitlist network error', e);
-        setStatus(form, "Network error. Check your connection.", 'err');
-      }
-    }
-
-    document.querySelectorAll('form.waitlist-form').forEach(form => {
-      form.addEventListener('submit', e => { e.preventDefault(); submit(form); });
-    });
-  })();
-</script>
-
-</body>
-</html>
+        c
